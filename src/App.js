@@ -16,11 +16,11 @@ function App() {
       <Routes>
         <Route path='/overview/:id' element={<Overview />} />
         <Route path='/upload' element={<Upload />} />
-        <Route path='/drawOne/:id' element={<DrawOne />} />
-        <Route path='/drawTwo/:id' element={<DrawTwo />} />
+        <Route path="/first/:linkId" element={<DrawOne />} />
+        <Route path="/second/:linkId" element={<DrawTwo />} />
 
 
-        <Route path=":userId" element={< Links />} />
+        <Route path="/links/:linkId" element={< Links />} />
 
         <Route path='/download/:id' element={<Download />} />
       </Routes>

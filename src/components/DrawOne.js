@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import SignaturePad from "react-signature-canvas";
 import axios from 'axios';
+import { Routes, Route, useParams } from 'react-router-dom';
 
 const Signature = () => {
     const [imageURL, setImageURl] = useState(null);
@@ -11,6 +12,9 @@ const Signature = () => {
     const save = () =>
         setImageURl(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
 
+    let { linkId } = useParams();
+    console.log(linkId);
+
     const saveToBackend = () => {
         var m = window.confirm("Want to sign?");
         if (m) {
@@ -19,7 +23,7 @@ const Signature = () => {
                 const formData = new FormData();
                 formData.append('file', blob, 'image.png');
 
-                axios.post('http://localhost:8080/receiveImageOne/123', formData);
+                axios.post('http://localhost:8080/receiveImageOne/' + linkId, formData);
 
             });
         }

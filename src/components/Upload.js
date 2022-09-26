@@ -33,7 +33,7 @@ class App extends Component {
         axios.post("http://localhost:8080/receivePdf/" + documentId, formData);
 
         alert('The file has been uploaded successfully.');
-        window.location.href = 'http://localhost:8080/testing/' + documentId;
+        window.location.href = '/links/' + documentId;
     
     };
 

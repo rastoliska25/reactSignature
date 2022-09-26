@@ -22,12 +22,12 @@ export default function Overview() {
     const paperStyle = { padding: '50px 20px', width: 600, margin: "20px auto" }
     const [document, setDocument] = useState([])
 
-    let { userId } = useParams();
-    console.log(userId);
+    let { linkId } = useParams();
+    console.log(linkId);
 
     useEffect(() => {
         console.log('test');
-        fetch("http://localhost:8080/links/6051716")
+        fetch("http://localhost:8080/links/" + linkId)
             .then(res => res.json())
             .then((result) => {
                 setDocument(result);
