@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Appbar from './components/Appbar'
+import Overview from './components/Overview'
+import Upload from './components/Upload'
+import DrawOne from './components/DrawOne'
+import DrawTwo from './components/DrawTwo'
+import Links from './components/Links'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Appbar />
+      <Routes>
+        <Route path='/overview' element={<Overview />} />
+        <Route path='/upload' element={<Upload />} />
+        <Route path='/drawOne' element={<DrawOne />} />
+        <Route path='/drawTwo' element={<DrawTwo />} />
+        <Route path='/links' element={<Links />} />
+      </Routes>
+
     </div>
   );
 }
