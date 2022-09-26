@@ -1,7 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Paper, Button } from '@material-ui/core';
+import { Routes, Route, useParams } from 'react-router-dom';
 
+function ProfilePage() {
+  // Get the userId param from the URL.
+  let { userId } = useParams();
+  // ...
+}
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,14 +20,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Overview() {
     const paperStyle = { padding: '50px 20px', width: 600, margin: "20px auto" }
-    const [documents, setDocuments] = useState([])
+    const [document, setDocument] = useState([])
 
+    let { userId } = useParams();
+    console.log(userId);
 
     useEffect(() => {
-        fetch("http://localhost:8080/overviewData")
+        console.log('test');
+        fetch("http://localhost:8080/links/6051716")
             .then(res => res.json())
             .then((result) => {
-                setDocuments(result);
+                setDocument(result);
             }
             )
     }, [])
@@ -31,18 +40,11 @@ export default function Overview() {
             <h1>Documents</h1>
 
             <Paper elevation={3} style={paperStyle}>
-
-                {documents.map(document => (
                     <Paper elevation={6} style={{ margin: "10px", padding: "15px", textAlign: "left" }} key={document.id}>
-                        first signed: {document.firstSignature}<br />
-                        second signed: {document.secondSignature}<br />
                         first signature link: {document.signatureOne}<br />
                         second signature link: {document.signatureTwo}<br />
-
                     </Paper>
-                ))
-                }
-
+                
             </Paper>
         </Container>
     );

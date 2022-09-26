@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { useNavigate } from "react-router-dom";
 
 class App extends Component {
 
@@ -14,7 +15,10 @@ class App extends Component {
 
     };
 
+
     onFileUpload = () => {
+
+        let documentId = getRandomInt(9999999);
 
         const formData = new FormData();
 
@@ -26,7 +30,11 @@ class App extends Component {
 
         console.log(this.state.selectedFile);
 
-        axios.post("http://localhost:8080/receivePdf/123", formData);
+        axios.post("http://localhost:8080/receivePdf/" + documentId, formData);
+
+        alert('The file has been uploaded successfully.');
+        window.location.href = 'http://localhost:8080/testing/' + documentId;
+    
     };
 
     fileData = () => {
@@ -78,5 +86,9 @@ class App extends Component {
         );
     }
 }
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
 export default App;

@@ -5,6 +5,7 @@ import Upload from './components/Upload'
 import DrawOne from './components/DrawOne'
 import DrawTwo from './components/DrawTwo'
 import Links from './components/Links'
+import Download from './components/Download'
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -13,11 +14,15 @@ function App() {
 
       <Appbar />
       <Routes>
-        <Route path='/overview' element={<Overview />} />
+        <Route path='/overview/:id' element={<Overview />} />
         <Route path='/upload' element={<Upload />} />
-        <Route path='/drawOne' element={<DrawOne />} />
-        <Route path='/drawTwo' element={<DrawTwo />} />
-        <Route path='/links' element={<Links />} />
+        <Route path='/drawOne/:id' element={<DrawOne />} />
+        <Route path='/drawTwo/:id' element={<DrawTwo />} />
+
+
+        <Route path=":userId" element={< Links />} />
+
+        <Route path='/download/:id' element={<Download />} />
       </Routes>
 
     </div>
