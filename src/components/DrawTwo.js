@@ -25,6 +25,8 @@ const Signature = () => {
 
                 axios.post('http://localhost:8080/receiveImageTwo/' + linkId, formData);
 
+                window.location.href = '/download/' + linkId;
+
             });
         }
     };
