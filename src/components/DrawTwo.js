@@ -40,21 +40,8 @@ const Signature = () => {
                     canvasProps={{ className: "signatureCanvas" }}
                 />
                 <button onClick={clear}>Clear</button>
-                <button onClick={save}>Save</button>
                 <button onClick={saveToBackend}>SaveToBackend</button>
             </div>
-            {imageURL ? (
-                <img
-                    src={imageURL}
-                    alt="Sign"
-                    style={{
-                        display: "block",
-                        width: "150px",
-                        minHeight: "50px",
-                        border: "1px solid #000"
-                    }}
-                />
-            ) : null}
         </div>
     );
 };

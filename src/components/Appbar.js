@@ -60,11 +60,9 @@ export default function Appbar() {
     navigate(path);
   }
 
-  const addEmployee = () => {
-    let path = `/addEmployee`;
-    navigate(path);
+  const viewOverview = () => {
+    window.location.href = "http://localhost:8080/overview";
   }
-
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -89,7 +87,7 @@ export default function Appbar() {
             Signature PDF
           </Typography>
 
-          <Button variant="contained" color="#d5e1df" onClick={documentOverview}>
+          <Button variant="contained" color="#d5e1df" onClick={viewOverview}>
             Documents overview
           </Button>
         </Toolbar>

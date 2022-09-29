@@ -14,7 +14,7 @@ function App() {
 
       <Appbar />
       <Routes>
-        <Route path='/overview/' element={<Overview />} />
+      <Route path='/overview/' element={<Overview />} />
         <Route path='/upload' element={<Upload />} />
         <Route path="/first/:linkId" element={<DrawOne />} />
         <Route path="/second/:linkId" element={<DrawTwo />} />

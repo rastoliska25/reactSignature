@@ -32,7 +32,7 @@ const Download = () => {
         <div>
             <h3>Download File</h3>
             <div>
-                <button onClick={downloadFile}>SaveToBackend</button>
+                <button onClick={downloadFile}>Download File</button>
             </div>
         </div>
     );

@@ -1,13 +1,7 @@
 import React, { useEffect, useState, Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Paper, Button } from '@material-ui/core';
-import { Routes, Route, useParams } from 'react-router-dom';
-
-function ProfilePage() {
-  // Get the userId param from the URL.
-  let { userId } = useParams();
-  // ...
-}
+import { Routes, Route, useParams, Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,11 +34,12 @@ export default function Overview() {
             <h1>Documents</h1>
 
             <Paper elevation={3} style={paperStyle}>
-                    <Paper elevation={6} style={{ margin: "10px", padding: "15px", textAlign: "left" }} key={document.id}>
-                        first signature link: {document.signatureOne}<br />
-                        second signature link: {document.signatureTwo}<br />
-                    </Paper>
-                
+                <Paper elevation={6} style={{ margin: "10px", padding: "15px", textAlign: "left" }} key={document.id}>
+                    <a href={document.signatureOne}>First Link</a>
+                    <br></br>
+                    <a href={document.signatureTwo}>Second Link</a>
+                </Paper>
+
             </Paper>
         </Container>
     );
